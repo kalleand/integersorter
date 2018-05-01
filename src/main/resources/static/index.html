@@ -1,0 +1,67 @@
+<!doctype html>
+<html ng-app="HM" lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Loading dependencies (bootstrap + angularjs) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+<h1 align="center">The ultimate integer sorter</h1>
+<div ng-controller="HMController">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <p>To sort integers add them to the list and then press sort!</p>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" placeholder="Number" aria-label="Add number"
+                           aria-describedby="basic-addon2" ng-model="newNumber">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" ng-click="addNumber()">Add number</button>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" ng-repeat="number in inputList">
+                        {{ number }}
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="sort()">Sort</button>
+            </div>
+            <div class="col-sm">
+                <div class="card" ng-repeat="result in previous">
+                    <div class="card-body">
+                        <div class="card-title"><h3>Sorting result</h3></div>
+                        <div class="card-body">
+                            Sorting took {{result.milliseconds}}ms and required {{result.steps}} steps
+                        </div>
+                        <div class="card-header">Input</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" ng-repeat="inputItem in result.inputArray">{{inputItem}}</li>
+                        </ul>
+                        <div class="card-header">Sorted</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" ng-repeat="sortedItem in result.sortedArray">{{sortedItem}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
+
