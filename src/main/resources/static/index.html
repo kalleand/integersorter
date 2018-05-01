@@ -1,7 +1,6 @@
 <!doctype html>
 <html ng-app="HM" lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,7 +26,7 @@
                     </div>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" ng-repeat="number in inputList">
+                    <li class="list-group-item" ng-repeat="number in inputList track by $index">
                         {{ number }}
                     </li>
                 </ul>
@@ -42,11 +41,11 @@
                         </div>
                         <div class="card-header">Input</div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item" ng-repeat="inputItem in result.inputArray">{{inputItem}}</li>
+                            <li class="list-group-item" ng-repeat="inputItem in result.inputArray track by $index">{{inputItem}}</li>
                         </ul>
                         <div class="card-header">Sorted</div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item" ng-repeat="sortedItem in result.sortedArray">{{sortedItem}}</li>
+                            <li class="list-group-item" ng-repeat="sortedItem in result.sortedArray track by $index">{{sortedItem}}</li>
                         </ul>
                     </div>
                 </div>
